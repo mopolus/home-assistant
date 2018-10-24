@@ -6,8 +6,7 @@ https://home-assistant.io/components/light.ihc/
 import voluptuous as vol
 import logging
 
-#from homeassistant.components.ihc import (
-from custom_components.ihc import (
+from homeassistant.components.ihc import (
     validate_name, get_ctrl_id, IHC_DATA, IHC_CONTROLLER, IHC_INFO)
 from homeassistant.components.ihc.const import CONF_DIMMABLE
 from homeassistant.components.ihc.ihcdevice import IHCDevice
