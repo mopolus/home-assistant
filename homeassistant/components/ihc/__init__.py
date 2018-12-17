@@ -164,6 +164,8 @@ _LOGGER = logging.getLogger(__name__)
 
 IHC_PLATFORMS = ('binary_sensor', 'light', 'sensor', 'switch')
 
+IHC_PLATFORM_CONFIG = ('binary_sensors', 'lights', 'sensors', 'switches')
+
 
 def setup(hass, config):
     """Set up the IHC platform."""
@@ -207,7 +209,7 @@ def ihc_setup(hass, config, conf, controller_id):
 def get_manual_configuration(hass, config, conf, ihc_controller,
                              controller_id):
     """Get manual configuration for IHC devices."""
-    for component in IHC_PLATFORMS:
+    for component in IHC_PLATFORM_CONFIG:
         discovery_info = {}
         if component in conf:
             component_setup = conf.get(component)
@@ -224,7 +226,7 @@ def get_manual_configuration(hass, config, conf, ihc_controller,
                         'type': sensor_cfg.get(CONF_TYPE),
                         'inverting': sensor_cfg.get(CONF_INVERTING),
                         'dimmable': sensor_cfg.get(CONF_DIMMABLE),
-                        'unit': sensor_cfg.get(CONF_UNIT_OF_MEASUREMENT)
+                        'unit_of_measurement': sensor_cfg.get(CONF_UNIT_OF_MEASUREMENT)
                     }
                 }
                 discovery_info[name] = device
